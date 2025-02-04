@@ -16,6 +16,7 @@ import io.cucumber.testng.CucumberOptions;
 //import io.cucumber.testng.CucumberOptions;
 
 //@RunWith(Cucumber.class)
+
 @CucumberOptions(features="Feature/Flight.feature",
                   glue="stepdefinitions",
                   dryRun=false
@@ -23,7 +24,7 @@ import io.cucumber.testng.CucumberOptions;
                   )
 
 
-public class Mainflight extends AbstractTestNGCucumberTests
+public class MainflightTest extends AbstractTestNGCucumberTests
 
 {
 
