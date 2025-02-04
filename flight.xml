@@ -1,0 +1,10 @@
+<suite name="flight registration">
+<test name="flight registration">
+<classes>
+
+<class name="testrunner.Mainflight"></class>
+</classes>
+
+</test>
+
+</suite>
