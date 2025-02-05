@@ -1,9 +1,14 @@
 package stepdefinitions;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -117,10 +122,14 @@ public class Flight
 	   driver.findElement(By.xpath("//input[@value=\"Business\"]")).click();
 	}
 	@When("click on insert")
-	public void click_on_insert() throws InterruptedException 
+	public void click_on_insert() throws InterruptedException, IOException 
 	{
        driver.findElement(By.xpath("//button[text()=\"Insert Order\"]")).click();
        Thread.sleep(6000);
+       TakesScreenshot ts=(TakesScreenshot) driver;
+       File src=ts.getScreenshotAs(OutputType.FILE);
+       File trg=new File("C:\\Users\\sravankumar shyamala\\Downloads\\flight.png");
+       FileUtils.copyFile(src, trg);
 	}
 	@When("i click on logout button")
 	public void i_click_on_logout_button() throws InterruptedException 
@@ -148,6 +157,22 @@ public class Flight
 	  {
 		  System.out.println("fail");
 	  }
+  }
+	
+	@When("click on flight booking")
+	public void click_on_flight_booking() throws InterruptedException 
+	{
+	    Thread.sleep(3000);
+	    driver.findElement(By.linkText("Flight Bookings")).click();
+	}
+	@When("click on delete button")
+	public void click_on_delete_button() 
+	{
+	    driver.findElement(By.linkText("Delete")).click();
+	    driver.switchTo().alert().accept();
+	}
+	
 
-	}}
+
+}
 
